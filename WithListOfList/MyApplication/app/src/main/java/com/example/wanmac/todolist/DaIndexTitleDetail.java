@@ -10,7 +10,7 @@ public class DaIndexTitleDetail {
     private static int indexTD;
 
     private DaIndexTitleDetail() {
-        indexTD = new Integer();
+        indexTD = -1;
     }
 
 
