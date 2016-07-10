@@ -1,8 +1,11 @@
 package com.example.wanmac.todolist;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +16,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
+
 /**
  * Created by wanmac on 7/7/16.
  */
@@ -21,23 +26,41 @@ public class ListDetailActivity extends AppCompatActivity {
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
+    final DaListOfList listOfList = DaListOfList.getInstance();
+    RecyclerView mRecyclerView;
+    AdpaterListDetail adapter;
+
     private GoogleApiClient client;
 
     EditText mEditItemTitle,mEditItemDetail ;
 
-
-    DaListOfList listOfList = DaListOfList.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_detail);
 
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycleview_ItemDetailList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        ///////////////////////
+        
+
         Button buSaveItem;
         buSaveItem = (Button) findViewById(R.id.toSaveButton01);
 
-        int comingInt = getIntent().getIntExtra("position", -1);
+        final int comingInt = getIntent().getIntExtra("position", -1);
+
         final TitleDetail titleDetail = listOfList.getTitleDetailInstance(comingInt);
+        //////////////////////////////////
+        ArrayList<IndiTitleDetail> data = titleDetail.getTitlesDetails();
+
+        adapter = new AdpaterListDetail(data);
+        mRecyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        ///////////////////////////////////
         String listName = titleDetail.getListName();
 
         TextView setListName = (TextView) findViewById(R.id.listNameID) ;
@@ -59,6 +82,12 @@ public class ListDetailActivity extends AppCompatActivity {
                 indiTitleDetail.setmDetail(detailStr);
 
                 titleDetail.addTileDetail(indiTitleDetail);
+
+                adapter.notifyDataSetChanged();
+
+                //Intent indexTitleDetail = new Intent(ListDetailActivity.this, AdpaterListDetail.class );
+                //indexTitleDetail.putExtra("indexTitleDetail", comingInt);
+                //ListDetailActivity.this.startActivity(indexTitleDetail);
 
                 Toast.makeText(getApplicationContext(), "indiTitle///"+indiTitleDetail,
                         Toast.LENGTH_LONG).show();

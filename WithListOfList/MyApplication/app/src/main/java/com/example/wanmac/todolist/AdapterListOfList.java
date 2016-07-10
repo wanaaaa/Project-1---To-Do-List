@@ -44,12 +44,20 @@ public class AdapterListOfList extends RecyclerView.Adapter<ViewHolderListOfList
                 sendPostionIntent.putExtra("position", position);
                 view.getContext().startActivity(sendPostionIntent);
 
-                Toast.makeText(view.getContext(), "Detail Button Clicked",
-                        Toast.LENGTH_SHORT ).show();
             }
         };
 
+        View.OnClickListener onClickListenerDeleteItem = new View.OnClickListener(){
+          @Override
+          public void onClick(View view){
+              DaListOfList listOfList = DaListOfList.getInstance();
+              listOfList.removeList(position);
+              removeAt(position);
+          }
+        };
+
         holder.mBuListDetail.setOnClickListener(onClickListenerDetail);
+        holder.mButtonDelete.setOnClickListener(onClickListenerDeleteItem);
     }
 
     @Override
@@ -65,3 +73,4 @@ public class AdapterListOfList extends RecyclerView.Adapter<ViewHolderListOfList
 }
 
 //buttonListDetail = (Button) findViewById(R.id.buListDetail01);
+//Toast.makeText(view.getContext(), "Detail Button Clicked",Toast.LENGTH_SHORT ).show();

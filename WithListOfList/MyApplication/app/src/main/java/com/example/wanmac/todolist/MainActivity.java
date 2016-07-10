@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -49,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         //////////////////////////////
 
-        Button buttonSaveList, buttonListDetail;
+        Button buttonSaveList, buttonDeleteAll;
 
         buttonSaveList = (Button) findViewById(R.id.buListSave01);
+        buttonDeleteAll = (Button) findViewById(R.id.buListAll01) ;
 
         buttonSaveList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +64,20 @@ public class MainActivity extends AppCompatActivity {
                 TitleDetail newTitieDetail = new TitleDetail(listTitleStr);
                 newListOfList.addList(newTitieDetail);
 
-                String nname = newListOfList.getTitleDetailInstance(0).mListName;
+                //String nname = newListOfList.getTitleDetailInstance(0).mListName;
 
-                Toast.makeText(getApplicationContext(), "saving list name///" + nname, Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
+
+            }
+        });
+
+        buttonDeleteAll.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                DaListOfList listOfListDeleteAll = DaListOfList.getInstance();
+                listOfListDeleteAll.removeAll();
+                adapter.notifyDataSetChanged();
+                //listOfListDeleteAll.notify();
 
             }
         });

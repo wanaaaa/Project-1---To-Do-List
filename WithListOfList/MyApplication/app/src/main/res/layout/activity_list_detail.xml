@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/toSaveButton01"
-        android:layout_width="match_parent"
+        android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:text="Click to Save"
         android:layout_margin="6dp"
