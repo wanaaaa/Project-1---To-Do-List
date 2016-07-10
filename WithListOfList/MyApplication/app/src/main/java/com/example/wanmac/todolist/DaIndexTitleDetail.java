@@ -1,22 +1,30 @@
 package com.example.wanmac.todolist;
 
-import java.util.ArrayList;
-
 /**
  * Created by lenoubun16 on 7/10/16.
  */
 public class DaIndexTitleDetail {
     private static DaIndexTitleDetail indexTitleDetail = null;
-    private static int indexTD;
+    private static int mIndexTD;
 
-    private DaIndexTitleDetail() {
-        indexTD = -1;
+    private DaIndexTitleDetail() {mIndexTD = -1;
     }
 
+    static DaIndexTitleDetail getInstance() {
+        if (indexTitleDetail == null) {
+            indexTitleDetail = new DaIndexTitleDetail();
+        }
 
+        return indexTitleDetail;
+    }
 
+    static int getIndexTD() {
+        return mIndexTD;
+    }
 
-
+    static void setIndexTD(int index){
+        mIndexTD = index;
+    }
 
 }
 

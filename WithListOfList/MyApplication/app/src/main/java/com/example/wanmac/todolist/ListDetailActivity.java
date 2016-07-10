@@ -1,6 +1,5 @@
 package com.example.wanmac.todolist;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +52,9 @@ public class ListDetailActivity extends AppCompatActivity {
         final int comingInt = getIntent().getIntExtra("position", -1);
 
         final TitleDetail titleDetail = listOfList.getTitleDetailInstance(comingInt);
+
+        DaIndexTitleDetail newInTD = DaIndexTitleDetail.getInstance();
+        newInTD.setIndexTD(comingInt);
         //////////////////////////////////
         ArrayList<IndiTitleDetail> data = titleDetail.getTitlesDetails();
 

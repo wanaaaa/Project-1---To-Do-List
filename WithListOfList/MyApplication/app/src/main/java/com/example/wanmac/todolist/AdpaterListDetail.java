@@ -1,11 +1,10 @@
 package com.example.wanmac.todolist;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -40,15 +39,23 @@ public class AdpaterListDetail extends RecyclerView.Adapter<ViewHolderListDetail
       // Bundle indexTitleDetail = getIntent.getExtr();
        // int aa = Intent.getIntentOld("indexTitleDetail")
 
-
-        View.OnClickListener onClickListener = new View.OnClickListener(){
+        View.OnClickListener onClickListenerDelete = new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                /////////////////////////////////////
+                DaIndexTitleDetail newInTD = DaIndexTitleDetail.getInstance();
+                int comingIndex = newInTD.getIndexTD();
+
+                DaListOfList newListOfList = DaListOfList.getInstance();
+
+                ///////////////////////////////
+                newListOfList.getTitleDetailInstance(comingIndex).removeTitleDetail(position);
+                notifyDataSetChanged();
+                Toast.makeText(view.getContext(), "The coming list title is///",
+                        Toast.LENGTH_SHORT).show();
 
             }
         };
-
+        holder.mBuRecyDelete.setOnClickListener(onClickListenerDelete);
     }
 
     @Override
