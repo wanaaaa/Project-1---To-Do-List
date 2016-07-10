@@ -1,3 +1,20 @@
+####What My App do
+
+My app can contain many lists. A list have many items.
+A Item has title and details. A user can add or remove any of them.
+A user can remove any of item or list one by one, or all of them at once.
+Right now, it has any of bugs. 
+
+I have two version of apps
+- "WithListOfList" has many lists.
+- "NoListOfList" can have just one list.
+
+All of them perfectly works.
+
+# ![alt tag](./ToDoList_ScreenShot.jpg)
+
+
+
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #1: To-Do List
 
 #### Overview
