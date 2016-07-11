@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/listNameID"
@@ -17,7 +18,10 @@
         android:hint="Title"
         android:textSize="27sp"
         android:textColor="#000000"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/listNameID" />
 
     <EditText
         android:id="@+id/itemDetail01"
@@ -26,25 +30,32 @@
         android:hint="To do Detail"
         android:textSize="22sp"
         android:textColor="#000000"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/itemTitle01"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:id="@+id/toSaveButton01"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:text="Click to Save"
-        android:layout_margin="6dp"
-        android:alpha="0.5"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleview_ItemDetailList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/itemDetail01"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="76dp">
 
     </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabInDetail"
+        android:layout_width="33dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@android:drawable/ic_menu_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

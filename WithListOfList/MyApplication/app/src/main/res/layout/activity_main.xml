@@ -20,16 +20,6 @@
         android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/buListSave01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/title01"
-        android:alpha="0.5"
-        android:text="Click to Save" />
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleview_main"
@@ -47,9 +37,19 @@
         android:layout_height="wrap_content"
         android:text="Delete All Lists"
         android:id="@+id/buListAll01"
-        android:layout_alignBottom="@+id/buListSave01"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="31dp"
-        android:layout_marginEnd="31dp" />
+        android:layout_below="@+id/title01"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabInMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@android:drawable/ic_menu_add"
+        android:layout_alignRight="@+id/recycleview_main"
+        android:layout_alignEnd="@+id/recycleview_main"
+        android:layout_alignParentBottom="true" />
+
+
 </RelativeLayout>

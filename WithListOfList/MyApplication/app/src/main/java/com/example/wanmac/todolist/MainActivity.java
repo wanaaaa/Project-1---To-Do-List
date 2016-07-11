@@ -2,14 +2,13 @@ package com.example.wanmac.todolist;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -49,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
         //////////////////////////////
+        FloatingActionButton fabSaveInMain;
+        Button buttonDeleteAll;
 
-        Button buttonSaveList, buttonDeleteAll;
-
-        buttonSaveList = (Button) findViewById(R.id.buListSave01);
         buttonDeleteAll = (Button) findViewById(R.id.buListAll01) ;
+        fabSaveInMain  = (FloatingActionButton) findViewById(R.id.fabInMain);
 
-        buttonSaveList.setOnClickListener(new View.OnClickListener() {
+        fabSaveInMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mEditListTitle = (EditText) findViewById(R.id.title01);

@@ -2,11 +2,11 @@ package com.example.wanmac.todolist;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,10 +44,9 @@ public class ListDetailActivity extends AppCompatActivity {
                 LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         ///////////////////////
-        
+        FloatingActionButton fabSaveInDetal;
+        fabSaveInDetal = (FloatingActionButton) findViewById(R.id.fabInDetail);
 
-        Button buSaveItem;
-        buSaveItem = (Button) findViewById(R.id.toSaveButton01);
 
         final int comingInt = getIntent().getIntExtra("position", -1);
 
@@ -71,7 +70,7 @@ public class ListDetailActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "The coming list title is///"+listName,
                 Toast.LENGTH_SHORT).show();
 
-        buSaveItem.setOnClickListener(new View.OnClickListener() {
+        fabSaveInDetal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mEditItemTitle = (EditText)findViewById(R.id.itemTitle01);
